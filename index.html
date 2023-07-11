@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fan Animation</title>
+        <style>  
+            .fan-box{
+                background-image: url('./img/fan.png');
+                width: 700px;
+                height: 550px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: 100px auto;
+                text-align: center;
+                animation-name: fanMove;                
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                animation-play-state: paused;
+            }
+
+            @keyframes fanMove {
+                0%{
+                    transform: rotateZ(0deg);
+                }
+                100%{
+                    transform: rotateZ(359deg);
+                }
+            }
+            .btn-group button:first-child{
+                padding: 30px 10px;
+                width: 150px;
+                border:none;
+                background-color: #fff;
+                /* height: 300px; */
+                background-image: url('./img/on-off.png');
+                background-repeat: no-repeat;
+                background-size: 150px 150px;
+                background-position: 0px -14px;               
+            }
+            
+        </style>
+        <script> </script>
+    </head>
+    <body>
+        <div class="fan-box" id="fan-box" data-kiran="myFanBox">         
+        </div>
+        <div class="btn-group" style="text-align: center;">
+            <button onclick="startFan(0)"></button>
+            <button onclick="startFan(1)">1</button>
+            <button onclick="startFan(2)">2</button>
+            <button onclick="startFan(3)">3</button>
+        </div>
+        <br><br>
+
+        <script>
+            function startFan(speed){
+                if(speed==0){
+                    document.querySelector('#fan-box').style.animationPlayState='paused';
+                    document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -14px';
+                }else if(speed==1){
+                    // testing 
+                    // alert(1);
+                    document.querySelector('[data-kiran="myFanBox"]').style.animationPlayState='running';
+                    document.querySelector('[data-kiran="myFanBox"]').style.animationDuration='0.5s';
+                    document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -78px';
+                }else if(speed==2){
+                    // alert(2)
+                    document.querySelector('[data-kiran="myFanBox"]').style.animationPlayState='running';
+                    document.querySelector('[data-kiran="myFanBox"]').style.animationDuration='1s';
+                    document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -78px';
+
+                }else{
+                    // alert(3)
+                    // Object.member
+                    // object.method
+                    document.getElementById('fan-box').style.animationPlayState='running';
+                    document.getElementById('fan-box').style.animationDuration='2s';
+                    document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -78px';
+                }
+            }
+        </script>
+
+    </body>
+</html>
